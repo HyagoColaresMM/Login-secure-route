@@ -8,35 +8,28 @@ const Navbar: React.FC = () => {
   return (
     <nav className="nav">
       <div className="nav-brand">
-        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+        <Link to="/" className="nav-brand-link">
           Auth Demo
         </Link>
       </div>
       <div className="nav-links">
-        <Link to="/">Home</Link>
+        <Link to="/" className="nav-link">Home</Link>
         
         {isAuthenticated ? (
           <>
-            <Link to="/secure-data">Dados Seguros</Link>
-            <span style={{ marginLeft: '20px' }}>Olá, {user?.name}</span>
+            <Link to="/secure-data" className="nav-link">Dados Seguros</Link>
+            <span className="nav-user">Olá, {user?.name}</span>
             <button 
               onClick={logout}
-              style={{ 
-                background: 'transparent', 
-                border: 'none', 
-                color: 'white',
-                cursor: 'pointer',
-                padding: '0',
-                fontSize: '16px'
-              }}
+              className="nav-logout-button"
             >
               Sair
             </button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Registrar</Link>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="nav-link">Registrar</Link>
           </>
         )}
       </div>

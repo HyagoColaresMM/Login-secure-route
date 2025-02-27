@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Home: React.FC = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
 
   return (
     <div className="card">
@@ -12,9 +12,12 @@ const Home: React.FC = () => {
       
       {isAuthenticated ? (
         <div>
-          <p>Você está logado e pode acessar os dados protegidos.</p>
+          <p>Olá, {user?.name}! Você está logado e pode acessar os dados protegidos.</p>
           <Link to="/secure-data">
             <button>Ver Dados Protegidos</button>
+          </Link>
+          <Link to="/profile">
+            <button>Ver Perfil</button>
           </Link>
         </div>
       ) : (

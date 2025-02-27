@@ -4,4 +4,9 @@ export interface User {
   email: string;
   password: string;
   createdAt: Date;
+  description?: string;
+  role?: string;
+  registrationNumber?: string;
+  department?: string;
+  photoUrl?: string;
 }

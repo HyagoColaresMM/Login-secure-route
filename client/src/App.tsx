@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import SecureData from './pages/SecureData';
+import Profile from './pages/Profile';
 import { useAuth } from './context/AuthContext';
 
 const App: React.FC = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             path="/secure-data" 
             element={isAuthenticated ? <SecureData /> : <Navigate to="/login" />} 
           />
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/profile" />} />
         </Routes>
       </div>
     </Router>
